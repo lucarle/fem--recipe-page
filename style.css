@@ -1,0 +1,158 @@
+:root {
+  --primary: hsl(0, 0%, 100%);
+
+  --secondary-100: hsl(30, 54%, 90%);
+  --secondary-150: hsl(30, 18%, 87%);
+  --secondary-600: hsl(30, 10%, 34%);
+  --secondary-900: hsl(24, 5%, 18%);
+
+  --tertiary-800: hsl(14, 45%, 36%);
+
+  --quaternary-50: hsl(330, 100%, 98%);
+  --quaternary-800: hsl(332, 51%, 32%);
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url(assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Young Serif";
+  src: url(assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+
+.flow-root {
+  display: flow-root;
+}
+
+.big {
+  font-size: larger;
+
+  color: var(--quaternary-800);
+}
+
+img:not(p *) {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+
+  color: var(--secondary-600);
+  background-color: var(--secondary-100);
+  font-family: "Outfit", Arial, Helvetica, sans-serif;
+}
+
+.center {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 1fr auto 1fr;
+  justify-content: center;
+
+  main {
+    grid-row: 2;
+  }
+}
+
+main {
+  --margin: 2em;
+
+  max-width: 50em;
+  margin: auto;
+
+  background-color: var(--primary);
+  border-radius: var(--margin);
+
+  .wrapper {
+    margin: var(--margin);
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+
+  color: var(--secondary-900);
+  font-family: "Young Serif", Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: xx-large;
+
+  color: var(--tertiary-800);
+  font-family: "Young Serif", Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+}
+
+#prepTime {
+  margin: 1.5cap 2cap;
+
+  & ::marker {
+    color: var(--quaternary-800);
+  }
+
+  .flow-root:has(> &) {
+    background-color: var(--quaternary-50);
+  }
+}
+
+table {
+  width: 100%;
+
+  font-size: large;
+}
+
+tr:not(:last-child) {
+  border-block-end: 1px solid var(--secondary-150);
+
+  table:has(&) {
+    border-collapse: collapse;
+  }
+}
+
+th,
+td {
+  width: 50%;
+  box-sizing: border-box;
+  padding-inline: 2em;
+}
+
+th {
+  text-align: start;
+  font-weight: unset;
+}
+
+td {
+  color: var(--tertiary-800);
+  font-weight: 600;
+}
+
+hr {
+  border: unset;
+  border-top: 1px solid var(--secondary-150);
+}
+
+::marker {
+  color: var(--tertiary-800);
+  font-weight: bold;
+}
+
+ul,
+ol {
+  padding-inline-start: 2ch;
+}
+
+@media (min-width: 50em) {
+  img[src*="omelette"] {
+    width: calc(100% - calc(var(--margin) * 2));
+    margin-inline: auto;
+    margin-block: var(--margin);
+    border-radius: calc(var(--margin) / 2);
+  }
+}
